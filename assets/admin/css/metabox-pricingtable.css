@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#pricingtable_metabox {
+  background: #f1f1f1 none repeat scroll 0 0;
+  border: medium none;
+  box-shadow: none;
+}
+
+#pricingtable_metabox .hndle {
+  background: rgb(96, 173, 252) none repeat scroll 0 0;
+  color: rgb(255, 255, 255);
+}
+
+#pricingtable_metabox .handlediv{
+  color: rgb(255, 255, 255);
+}
+
+
+
+.wp-picker-container .iris-picker{
+position: absolute;
+  z-index: 10;
+}
+#pricingtable_admin{
+background:none repeat scroll 0 0 #ddd;
+border-collapse:collapse;
+margin-top:20px;
+position:relative;
+width:auto;
+}
+#pricingtable_admin tr{
+}
+#pricingtable_admin td {
+    border-right: 1px solid #999;
+    margin: 0;
+    min-width: 180px;
+    padding: 5px;
+    position: relative;
+    font-size: 12px;
+}
+
+#pricingtable_admin tr td:last-child{
+    border-right: none;
+}
+
+.pricingtable_bg_img_list li{
+display:inline-block;
+height:50px;
+margin:3px;
+overflow:hidden;
+vertical-align:top;
+width:50px;
+}
+.pricingtable_bg_img_list li img{
+height:auto;
+vertical-align:top;
+width:100%;
+}
+.pricingtable_bg_img_list li.bg-selected{
+border:2px solid #de371c;
+}
+
+
+
+
+
+#pricingtable_admin .more-options {
+    position: relative;
+}
+
+#pricingtable_admin .more-options .toggle {
+    display: inline-block;
+    background: #f3f3f3;
+    font-size: 16px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+#pricingtable_admin .more-options .options {
+    display: none;
+
+}
+
+#pricingtable_admin .more-options.active .options {
+    display: block;
+    position: absolute;
+    background: #fff;
+    padding: 0;
+    z-index: 10;
+    box-shadow: 0 5px 8px 3px rgba(179, 179, 179, 0.3);
+    width: 340px;
+}
+
+
+
+#pricingtable_admin .more-options .option-field {
+    width: 43%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+#pricingtable_admin .option-field {
+    padding: 10px;
+}
+#pricingtable_admin	.option-field .field-title{}
+
+#pricingtable_admin .row-header, #pricingtable_admin .row-price{
+    border-bottom: 1px solid #999;
+}
+
+#pricingtable_admin .row-signup{
+    border-top: 1px solid #999;
+}
+
+
+#pricingtable_admin input[type="text"] {
+    width: 100%;
+    margin: 0;
+}
+
+
+ .themes-list label {
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+}
+ .themes-list .screenshot {
+    position: absolute;
+    border: 0;
+    left: 0;
+    width: 400px;
+    height: auto;
+    background: #fff;
+    display: none;
+    box-shadow: 0 0 20px 0px rgba(131, 131, 131, 0.5);
+    z-index: 10;
+}
+
+
+ .themes-list label:hover .screenshot {
+
+    display: block;
+}
+
+
+#pricingtable_metabox .preview {
+    display: block;
+    clear: both;
+    float: none;
+    background: #ddd;
+}
+
+#pricingtable_metabox .preview .preview-title {
+    font-size: 15px;
+    padding: 15px 15px;
+    font-weight: bold;
+}
+
+
+#pricingtable_metabox .pro-feature {
+    background: #ffd133;
+    padding: 0px 7px;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+
+
+

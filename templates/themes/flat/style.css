@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+/*flat Theme*/
+
+.flat{
+
+}
+.flat .column{
+/*box-shadow*/
+-webkit-box-shadow:0 0 2px -2px #000;
+   -moz-box-shadow:0 0 2px -2px #000;
+        box-shadow:0 0 2px -2px #000;
+display:inline-block;
+list-style:none outside none;
+margin:30px 6px;
+padding:0;
+vertical-align:top;
+width:200px;
+/*transition*/
+-webkit-transition:all 0.5s ease 0s;
+   -moz-transition:all 0.5s ease 0s;
+     -o-transition:all 0.5s ease 0s;
+        transition:all 0.5s ease 0s;
+
+overflow:hidden;
+}
+
+
+.flat .column-item{
+background:none repeat scroll 0 0 #f1f1f1;
+color:#606060;
+font-size:14px;
+font-weight:200;
+list-style:none outside none;
+margin:0;
+padding:15px 0;
+position:relative;
+text-align:center;
+}
+
+.flat .column-item-body{
+    padding:0px 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+.flat .column-item-header{
+padding:20px 0;
+overflow:hidden;
+}
+
+
+.flat .pricingtable-header iframe{
+margin-top:20px;
+width:100%;
+}
+.flat div span.pricingtable-header-name{
+clear:both;
+display:block;
+font-size:30px;
+}
+
+.flat div span.price-value{
+clear:both;
+color:#747474;
+display:block;
+font-size:35px;
+line-height:35px;
+}
+
+
+.flat .column-item-media {
+    padding: 0;
+}
+.flat .column-item-media img {
+    box-shadow: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

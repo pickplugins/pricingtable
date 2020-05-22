@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+/*rounded Theme*/
+
+.rounded{
+
+}
+.rounded .column {
+    -webkit-box-shadow: 0 0 2px -2px #000;
+    -moz-box-shadow: 0 0 2px -2px #000;
+    box-shadow: 0 0 2px -2px #000;
+    display: inline-block;
+    list-style: none outside none;
+    margin: 30px 6px;
+    padding: 0;
+    vertical-align: top;
+    width: 280px;
+    height: 280px;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    overflow: hidden;
+    border-radius: 100%;
+    background: #f1f1f1;
+    position: relative;
+}
+
+.rounded .column-item {
+    background: none repeat scroll 0 0 #f1f1f1;
+    color: #606060;
+    font-size: 14px;
+    font-weight: 200;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0 0 10px 0;
+    position: relative;
+    text-align: center;
+}
+
+.rounded .column-item-data {
+    padding: 5px 0;
+}
+
+
+
+
+
+
+
+
+
+
+.rounded .column-item-header {
+    padding: 10px 0 0 0;
+    overflow: hidden;
+}
+.rounded .pricingtable-ribbon{
+/*box-shadow*/
+-webkit-box-shadow:0 2px 2px -2px #000;
+   -moz-box-shadow:0 2px 2px -2px #000;
+        box-shadow:0 2px 2px -2px #000;
+display:block;
+height:24px;
+position:absolute;
+right:-24px;
+top:10px;
+width:90px;
+/*transform*/
+-webkit-transform:rotate(45deg);
+   -moz-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+     -o-transform:rotate(45deg);
+        transform:rotate(45deg);
+}
+
+.rounded .pricingtable-header iframe{
+margin-top:20px;
+width:100%;
+}
+.rounded div span.pricingtable-header-name{
+clear:both;
+display:block;
+font-size:30px;
+}
+
+.rounded div span.price-value{
+clear:both;
+color:#747474;
+display:block;
+font-size:35px;
+line-height:35px;
+}
+
+.rounded .column:hover .column-item-media {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+}
+.rounded .column-item-media {
+    padding: 0;
+    display: none;
+    height: auto;
+    z-index: 10;
+}
+.rounded .column-item-media img {
+    box-shadow: none;
+    width: 100%;
+}
+
+.rounded .column-item-footer {
+    display: none;
+    z-index: 20;
+}
+
+
+
+.rounded .column:hover .column-item-footer {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%,50%);
+    display: block;
+}
+
+
+
+
+
+
