@@ -1,11 +1,5 @@
 <?php
-
-/*
-* @Author 		pickplugins
-* Copyright: 	2015 pickplugins
-*/
-
-if ( ! defined('ABSPATH')) exit;  // if direct access	
+if ( ! defined('ABSPATH')) exit;  // if direct access
 
 
 
@@ -23,9 +17,9 @@ if(empty($pricingtable_themes)){
 	$pricingtable_themes = 'flat';
 }
 
+wp_enqueue_style('pricingtable_themes', pricingtable_plugin_url.'templates/themes/'.$pricingtable_themes.'/style.css');
 
 ?>
-	<link rel="stylesheet" href="<?php echo pricingtable_plugin_url.'templates/themes/'.$pricingtable_themes.'/style.css';?>">
 	<style type="text/css">
         .pricingtable-<?php echo $post_id; ?> .column-item-data.odd{
         <?php if(!empty($pricingtable_row_bg_odd)): ?>

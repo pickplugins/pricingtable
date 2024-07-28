@@ -35,7 +35,7 @@ class class_post_meta_pricingtable{
         $post_id = $post->ID;
 
 
-        $settings_tabs_field = new settings_tabs_field();
+        $pickp_settings_tabs_field = new pickp_settings_tabs_field();
 
         $_settings_tabs = array();
 
@@ -142,7 +142,7 @@ class class_post_meta_pricingtable{
         if (!isset($_POST['pricingtable_nonce_check_value']))
             return $post_id;
 
-        $nonce = $_POST['pricingtable_nonce_check_value'];
+        $nonce = sanitize_text_field($_POST['pricingtable_nonce_check_value']);
 
         // Verify that the nonce is valid.
         if (!wp_verify_nonce($nonce, 'pricingtable_nonce_check'))

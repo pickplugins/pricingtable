@@ -9,7 +9,7 @@ add_action('pricingtable_metabox_content_shortcode', 'pricingtable_metabox_conte
 
 function pricingtable_metabox_content_shortcode($post_id){
 
-    $settings_tabs_field = new settings_tabs_field();
+    $pickp_settings_tabs_field = new pickp_settings_tabs_field();
 
 
     ?>
@@ -75,7 +75,7 @@ function pricingtable_metabox_content_shortcode($post_id){
             'type'		=> 'custom_html',
             'html'		=> $html,
         );
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
         ?>
@@ -90,7 +90,7 @@ add_action('pricingtable_metabox_content_table_data', 'pricingtable_metabox_cont
 
 function pricingtable_metabox_content_table_data($post_id){
 
-    $settings_tabs_field = new settings_tabs_field();
+    $pickp_settings_tabs_field = new pickp_settings_tabs_field();
 
 
 
@@ -212,7 +212,7 @@ function pricingtable_metabox_content_table_data($post_id){
         'placeholder'		=> '3',
     );
 
-    $settings_tabs_field->generate_field($args, $post_id);
+    $pickp_settings_tabs_field->generate_field($args, $post_id);
 
     $args = array(
         'id'		=> 'pricingtable_total_column',
@@ -224,7 +224,7 @@ function pricingtable_metabox_content_table_data($post_id){
         'placeholder'		=> '3',
     );
 
-    $settings_tabs_field->generate_field($args, $post_id);
+    $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
 
@@ -850,7 +850,7 @@ add_action('pricingtable_metabox_content_style', 'pricingtable_metabox_content_s
 
 function pricingtable_metabox_content_style($post_id){
 
-    $settings_tabs_field = new settings_tabs_field();
+    $pickp_settings_tabs_field = new pickp_settings_tabs_field();
 
     $column_item_position = get_post_meta( $post_id, 'column_item_position', true );
     $pricingtable_hide_empty_row = get_post_meta( $post_id, 'pricingtable_hide_empty_row', true );
@@ -944,7 +944,7 @@ function pricingtable_metabox_content_style($post_id){
             'html'		=> $html,
         );
 
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
 
@@ -1008,7 +1008,7 @@ function pricingtable_metabox_content_style($post_id){
             'type'		=> 'custom_html',
             'html'		=> $html,
         );
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
 
@@ -1025,7 +1025,7 @@ function pricingtable_metabox_content_style($post_id){
             ),
         );
 
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
 
@@ -1114,7 +1114,7 @@ function pricingtable_metabox_content_style($post_id){
             'type'		=> 'custom_html',
             'html'		=> $html,
         );
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
         $args = array(
@@ -1124,7 +1124,7 @@ function pricingtable_metabox_content_style($post_id){
             'type'		=> 'colorpicker',
             'value'		=> $pricingtable_row_bg_odd,
         );
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
         $args = array(
@@ -1134,7 +1134,7 @@ function pricingtable_metabox_content_style($post_id){
             'type'		=> 'colorpicker',
             'value'		=> $pricingtable_row_bg_even,
         );
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
 
         $args = array(
@@ -1150,7 +1150,7 @@ function pricingtable_metabox_content_style($post_id){
             ),
         );
 
-        $settings_tabs_field->generate_field($args, $post_id);
+        $pickp_settings_tabs_field->generate_field($args, $post_id);
 
         ?>
 
@@ -1171,48 +1171,48 @@ function post_meta_save_pricingtable($post_id){
     //$pricingtable_hover_effect = sanitize_text_field( $_POST['pricingtable_hover_effect'] );
     $pricingtable_bg_img = sanitize_text_field( $_POST['pricingtable_bg_img'] );
     $pricingtable_themes =  isset($_POST['pricingtable_themes']) ? sanitize_text_field( $_POST['pricingtable_themes'] ) : 'flat';
-    $column_item_position = stripslashes_deep( $_POST['column_item_position'] );
+    $column_item_position = pricingtable_recursive_sanitize_arr( $_POST['column_item_position'] );
 
     $pricingtable_total_row = sanitize_text_field( $_POST['pricingtable_total_row'] );
     $pricingtable_total_column = sanitize_text_field( $_POST['pricingtable_total_column'] );
-    $pricingtable_cell = stripslashes_deep( $_POST['pricingtable_cell'] );
+    $pricingtable_cell = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell'] );
 
-    $pricingtable_column_width = stripslashes_deep( $_POST['pricingtable_column_width'] );
-    $pricingtable_column_margin = stripslashes_deep( $_POST['pricingtable_column_margin'] );
-
-
-    $pricingtable_column_featured = isset($_POST['pricingtable_column_featured']) ? stripslashes_deep( $_POST['pricingtable_column_featured'] ) : '';
-    $pricingtable_column_ribbon = stripslashes_deep( $_POST['pricingtable_column_ribbon'] );
-    $column_ribbon_position = stripslashes_deep( $_POST['column_ribbon_position'] );
-
-    $pricingtable_cell_price_duration = stripslashes_deep( $_POST['pricingtable_cell_price_duration'] );
-    $pricingtable_cell_price = stripslashes_deep( $_POST['pricingtable_cell_price'] );
-    $pricingtable_cell_price_bg_color = stripslashes_deep( $_POST['pricingtable_cell_price_bg_color'] );
-    $pricingtable_cell_price_font_color = stripslashes_deep( $_POST['pricingtable_cell_price_font_color'] );
-    $pricingtable_cell_price_font_size = stripslashes_deep( $_POST['pricingtable_cell_price_font_size'] );
-
-    $pricingtable_cell_signup_bg_color = stripslashes_deep( $_POST['pricingtable_cell_signup_bg_color'] );
-    $pricingtable_cell_signup_button_bg_color = stripslashes_deep( $_POST['pricingtable_cell_signup_button_bg_color'] );
-    $signup_button_font_color = stripslashes_deep( $_POST['signup_button_font_color'] );
-
-    $signup_button_style = stripslashes_deep( $_POST['signup_button_style'] );
+    $pricingtable_column_width = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_column_width'] );
+    $pricingtable_column_margin = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_column_margin'] );
 
 
-    $pricingtable_cell_signup_name = stripslashes_deep( $_POST['pricingtable_cell_signup_name'] );
-    $pricingtable_cell_signup_url = stripslashes_deep( $_POST['pricingtable_cell_signup_url'] );
+    $pricingtable_column_featured = isset($_POST['pricingtable_column_featured']) ? pricingtable_recursive_sanitize_arr( $_POST['pricingtable_column_featured'] ) : '';
+    $pricingtable_column_ribbon = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_column_ribbon'] );
+    $column_ribbon_position = pricingtable_recursive_sanitize_arr( $_POST['column_ribbon_position'] );
+
+    $pricingtable_cell_price_duration = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_price_duration'] );
+    $pricingtable_cell_price = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_price'] );
+    $pricingtable_cell_price_bg_color = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_price_bg_color'] );
+    $pricingtable_cell_price_font_color = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_price_font_color'] );
+    $pricingtable_cell_price_font_size = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_price_font_size'] );
+
+    $pricingtable_cell_signup_bg_color = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_signup_bg_color'] );
+    $pricingtable_cell_signup_button_bg_color = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_signup_button_bg_color'] );
+    $signup_button_font_color = pricingtable_recursive_sanitize_arr( $_POST['signup_button_font_color'] );
+
+    $signup_button_style = pricingtable_recursive_sanitize_arr( $_POST['signup_button_style'] );
 
 
-    $pricingtable_cell_header_description = stripslashes_deep( $_POST['pricingtable_cell_header_description'] );
-    $pricingtable_cell_header_image = stripslashes_deep( $_POST['pricingtable_cell_header_image'] );
-    $pricingtable_cell_header_bg_color = stripslashes_deep( $_POST['pricingtable_cell_header_bg_color'] );
-    $pricingtable_cell_header_font_color = stripslashes_deep( $_POST['pricingtable_cell_header_font_color'] );
-    $pricingtable_cell_header_text = stripslashes_deep( $_POST['pricingtable_cell_header_text'] );
-    $pricingtable_cell_header_text_font_size = stripslashes_deep( $_POST['pricingtable_cell_header_text_font_size'] );
-    $column_animation = stripslashes_deep( $_POST['column_animation'] );
-    $column_animation_duration = stripslashes_deep( $_POST['column_animation_duration'] );
+    $pricingtable_cell_signup_name = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_signup_name'] );
+    $pricingtable_cell_signup_url = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_signup_url'] );
 
-    $pricingtable_row_bg_odd = stripslashes_deep( $_POST['pricingtable_row_bg_odd'] );
-    $pricingtable_row_bg_even = stripslashes_deep( $_POST['pricingtable_row_bg_even'] );
+
+    $pricingtable_cell_header_description = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_header_description'] );
+    $pricingtable_cell_header_image = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_header_image'] );
+    $pricingtable_cell_header_bg_color = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_header_bg_color'] );
+    $pricingtable_cell_header_font_color = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_header_font_color'] );
+    $pricingtable_cell_header_text = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_header_text'] );
+    $pricingtable_cell_header_text_font_size = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_cell_header_text_font_size'] );
+    $column_animation = pricingtable_recursive_sanitize_arr( $_POST['column_animation'] );
+    $column_animation_duration = pricingtable_recursive_sanitize_arr( $_POST['column_animation_duration'] );
+
+    $pricingtable_row_bg_odd = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_row_bg_odd'] );
+    $pricingtable_row_bg_even = pricingtable_recursive_sanitize_arr( $_POST['pricingtable_row_bg_even'] );
     $mobile_enable_slider = sanitize_text_field( $_POST['mobile_enable_slider'] );
 
 

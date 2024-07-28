@@ -22,7 +22,7 @@ if(current_user_can('manage_options')):
     else
         {
 
-            $nonce = $_POST['_wpnonce'];
+            $nonce = sanitize_text_field($_POST['_wpnonce']);
             //if($_POST['pricingtable_hidden'] == 'Y') {
             if(wp_verify_nonce( $nonce, 'pricingtable_license' ) && $_POST['pricingtable_hidden'] == 'Y') {
 
@@ -44,7 +44,7 @@ if(current_user_can('manage_options')):
     <div class="wrap">
 
         <div id="icon-tools" class="icon32"><br></div><?php echo "<h2>".__(pricingtable_plugin_name.' Migrate', 'pricingtable')."</h2>";?>
-            <form  method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+            <form  method="post" action="<?php echo str_replace( '%7E', '~', esc_url_raw($_SERVER['REQUEST_URI'])); ?>">
         <input type="hidden" name="pricingtable_hidden" value="Y">
             <?php //settings_fields( 'pricingtable_plugin_options' );
                     //do_settings_sections( 'pricingtable_plugin_options' );

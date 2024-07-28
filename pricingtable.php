@@ -3,7 +3,7 @@
 Plugin Name: Pricing Table by PickPlugins
 Plugin URI: https://www.pickplugins.com/item/pricing-table/?ref=dashboard
 Description: Long waited pricing table plugin for WordPress published to display pricing grid on your WordPress site.
-Version: 1.12.5
+Version: 1.12.9
 Author: pickplugins
 Author URI: http://pickplugins.com/
 License: GPLv2 or later
@@ -23,7 +23,7 @@ if(!class_exists('PricingTablePickplugins')){
 
             define('pricingtable_pro_url','https://www.pickplugins.com/item/pricing-table/?ref=dashboard' );
             define('pricingtable_plugin_name', 'Pricing Table' );
-            define('pricingtable_version', '1.12.5' );
+            define('pricingtable_version', '1.12.9' );
 
             //require_once( pricingtable_plugin_dir . 'includes/meta.php');
             require_once( pricingtable_plugin_dir . 'includes/functions.php');
@@ -37,8 +37,8 @@ if(!class_exists('PricingTablePickplugins')){
 
 
 
-            add_action( 'wp_enqueue_scripts', array( $this, '_front_scripts' ) );
-            add_action( 'admin_enqueue_scripts', array( $this, '_admin_scripts' ) );
+            add_action( 'wp_enqueue_scripts', array( $this, 'front_scripts' ) );
+            add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 
         }
 
@@ -46,7 +46,7 @@ if(!class_exists('PricingTablePickplugins')){
 
 
 
-        public function _front_scripts(){
+        public function front_scripts(){
 
             wp_register_style('pricingtable_style', pricingtable_plugin_url.'assets/front/css/pricingtable.css');
             wp_register_style('owl.carousel', pricingtable_plugin_url.'assets/front/css/owl.carousel.min.css');
@@ -55,7 +55,7 @@ if(!class_exists('PricingTablePickplugins')){
         }
 
 
-        public function _admin_scripts(){
+        public function admin_scripts(){
 
             $screen = get_current_screen();
 
@@ -74,8 +74,8 @@ if(!class_exists('PricingTablePickplugins')){
 
             if ($screen->id == 'pricingtable'){
 
-                $settings_tabs_field = new settings_tabs_field();
-                $settings_tabs_field->admin_scripts();
+                $pickp_settings_tabs_field = new pickp_settings_tabs_field();
+                $pickp_settings_tabs_field->admin_scripts();
 
                 wp_enqueue_script( 'scripts-meta-pricingtable' );
                 wp_enqueue_style( 'metabox-pricingtable' );

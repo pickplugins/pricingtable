@@ -21,7 +21,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 		if($_POST['pricingtable_hidden'] == 'Y') {
 			//Form data sent
 
-			$pricingtable_ribbons = stripslashes_deep($_POST['pricingtable_ribbons']);
+			$pricingtable_ribbons = pricingtable_recursive_sanitize_arr($_POST['pricingtable_ribbons']);
 			update_option('pricingtable_ribbons', $pricingtable_ribbons);
 
 
@@ -47,7 +47,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 <div class="wrap">
 
 	<div id="icon-tools" class="icon32"><br></div><?php echo "<h2>".__(pricingtable_plugin_name.' Settings')."</h2>";?>
-		<form  method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+		<form  method="post" action="<?php echo str_replace( '%7E', '~', esc_url_raw($_SERVER['REQUEST_URI'])); ?>">
 	<input type="hidden" name="pricingtable_hidden" value="Y">
         <?php settings_fields( 'pricingtable_plugin_options' );
 				do_settings_sections( 'pricingtable_plugin_options' );

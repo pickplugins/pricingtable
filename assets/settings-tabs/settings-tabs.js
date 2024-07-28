@@ -191,7 +191,7 @@ jQuery(document).ready(function($){
             jQuery(this).parent().parent().removeClass("active");
         }else{
             jQuery(this).parent().parent().addClass("active");
-            textarea_to_editor();
+            pickp_textarea_to_editor();
         }
     })
 
@@ -203,13 +203,13 @@ jQuery(document).ready(function($){
 
         $(this).parent().children('.repeatable-field-list').append(repeatable_html);
 
-        textarea_to_editor();
+        pickp_textarea_to_editor();
 
 
     })
 
 
-    function textarea_to_editor(){
+    function pickp_textarea_to_editor(){
 
         //textarea = $('.textarea-editor');
 

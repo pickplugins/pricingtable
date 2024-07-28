@@ -24,7 +24,19 @@ add_action( 'manage_pricingtable_posts_custom_column' , 'pricingtable_posts_shor
 
 
 
+function pricingtable_recursive_sanitize_arr($array) {
 
+    foreach ( $array as $key => &$value ) {
+        if ( is_array( $value ) ) {
+            $value = pricingtable_recursive_sanitize_arr($value);
+        }
+        else {
+            $value = wp_kses_post( $value );
+        }
+    }
+
+    return $array;
+}
 
 
 

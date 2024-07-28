@@ -3,8 +3,8 @@
 	Donate link: https://www.pickplugins.com/item/pricing-table/?ref=wordpress.org
 	Tags:  free pricing table, price table, pricing table, pricing table plugin, pricing tables, wordpress pricing table, pricing, pricing plugin, pricing grid, price grid
 	Requires at least: 3.8
-	Tested up to: 5.4
-	Stable tag: 1.12.5
+	Tested up to: 6.6
+	Stable tag: 1.12.9
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,36 +55,32 @@ Could be possible to generate hosting style pricing table grid, flat grid, hide 
 
 == Installation ==
 
-1. Install as regular WordPress plugin.<br />
-2. Go your plugin setting via WordPress Dashboard and find "<strong>PricingTable</strong>" activate it.<br />
+1. Install as regular WordPress plugin.
+2. Go your plugin setting via WordPress Dashboard and find "<strong>PricingTable</strong>" activate it.
 
-After activate plugin you will see "PricingTable" menu at left side on wordpress dashboard click "New PricingTable" and fill the options field "Pricing Table Options"<br />
+After activate plugin you will see "PricingTable" menu at left side on wordpress dashboard click "New PricingTable" and fill the options field "Pricing Table Options"
 
+<strong>How to use on page or post</strong>
+When pricing table data and options setup done please publish pricingtable as like post or page
 
+and then copy shortcode from top of <strong>Pricing Table Options</strong> `[pricingtable  id="123" ]`
 
+then paste this shortcode anywhere in your page to display pricing table
 
-<br />
-<strong>How to use on page or post</strong><br />
-When pricing table data and options setup done please publish pricingtable as like post or page<br />
+<strong>How to display image or video on column</strong>
 
-and then copy shortcode from top of <strong>Pricing Table Options</strong> `[pricingtable  id="123" ]`<br />
+You can display column image, or video,
 
-then paste this shortcode anywhere in your page to display pricing table<br />
+simplay to display image insert image url, filetype: .png, .gif, .jpg
 
-<strong>How to display image or video on column</strong><br />
+PricingTable support youtube.com and vimeo.com video
 
-You can display column image, or video,<br />
+to display videos on column simplay insert video url as following:
 
-simplay to display image insert image url, filetype: .png, .gif, .jpg<br />
-
-PricingTable support youtube.com and vimeo.com video<br />
-
-to display videos on column simplay insert video url as following:<br />
-
-<strong>for youtube:</strong><br />
+<strong>for youtube:</strong>
 `https://www.youtube.com/watch?v=PPLr-3viHOw`
 
-<strong>for vimeo:</strong><br />
+<strong>for vimeo:</strong>
 `http://vimeo.com/98571984`
 
 
@@ -116,6 +112,18 @@ to display videos on column simplay insert video url as following:<br />
 
 
 == Changelog ==
+
+	= 1.12.9 =
+    * 2021-05-19 - fix - HTML output issue fixed.
+
+	= 1.12.8 =
+    * 2021-04-24 - fix - general function name issue fixed.
+
+	= 1.12.7 =
+    * 2021-04-20 - fix - style file loading issue fixed.
+
+	= 1.12.6 =
+    * 2021-04-18 - fix - security issue update
 
 	= 1.12.5 =
     * 15/09/2019 - update - settings framework update.
